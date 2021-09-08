@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300&display=swap');
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightblue;
+}
+
+body {
+    margin: 0 0;
+}
+
+
+li, a, button, div {
+    font-family: 'IBM Plex Sans Arabic', 'sans-serif';
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.logo {
+    order: 0;
+    width: 100px;
+    height: 50px;
+    margin: 10px 0 10px 10px;
+}
+
+nav {
+    margin: 10px 0 10px 0;
+}
+
+.nav__links li a {
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.nav__links li a:hover {
+    color: red;
+}
+
+.nav__links li {
+    order: 1;
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.vl {
+    border-left: 1px solid black;
+    height: 500px;
+    position: absolute;
+    margin: 5% 50% 10% 50%;
+}
+
+.material-icons {
+    cursor: pointer;
+}
+
+.four {
+    box-sizing: border-box;
+    margin-right: 20px;
+}
+
+.four a {
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.four a:hover {
+    color: red;
+}
+
+.four a:last-child {
+    order: 2;
+    margin: 0 20px;
+}
+
+.landingForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.landingForm .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    margin: 30px;
+    flex: 1;
+}
+
+.landingForm .content input {
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid;
+    font-family: inherit;
+    text-indent: 5px;
+}
+
+button {
+    margin-top: 10px;
+}
+
+.searchInput {
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+    width: 400px;
+    border-radius: 10px;
+    border: 1px solid;
+    font-family: inherit;
+    text-indent: 5px;
+}
+
+.homeContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+}
+
+.carousel {
+    width: 600px;
+    height: 400px;
+    background-color: red;
+}
