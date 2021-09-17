@@ -1,4 +1,3 @@
-
 export const article = [
          {"id": 1, "name": "Cuoci prosciutto", "price": "45 euro Inglesi", "image": require("./assets/articoli/1.png").default},
          {"id": 2, "name": "Orgasmo in scatola", "price": "30 euro ma anche meno", "image": require("./assets/articoli/2.png").default},
