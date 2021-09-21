@@ -31,7 +31,11 @@ const HeaderHome = () => {
         </nav>
       </div>
       <div className="four" onClick={() => setIsSideBarOpen(!isSidebarOpen)}>
-        <i className="material-icons hamburger">menu</i>
+        {!isSidebarOpen ? (
+          <i className="material-icons hamburger">menu</i>
+        ) : (
+          <span className="material-icons">close</span>
+        )}
       </div>
       <Sidebar isSidebarOpen={isSidebarOpen} />
     </header>
