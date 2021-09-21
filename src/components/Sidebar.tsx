@@ -1,12 +1,22 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import CSS from "csstype";
-import { relative } from "path";
+import { useHistory } from "react-router";
 
 interface sidebarprops {
   isSidebarOpen: boolean;
+  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Sidebar: React.FC<sidebarprops> = ({ isSidebarOpen }): JSX.Element => {
+const Sidebar: React.FC<sidebarprops> = ({
+  isSidebarOpen,
+  setIsSidebarOpen,
+}): JSX.Element => {
+  const history = useHistory();
+
+  useEffect(() => {
+    console.log(isSidebarOpen);
+  }, [isSidebarOpen]);
+
   const style0: CSS.Properties = {
     transform: "translateX(-50px)",
     transition: "all .5s",
@@ -22,7 +32,7 @@ const Sidebar: React.FC<sidebarprops> = ({ isSidebarOpen }): JSX.Element => {
   return (
     <>
       {isSidebarOpen ? (
-        <div className="sidebar" style={style0}>
+        <div id="open" className="sidebar" style={style0}>
           <ul
             style={{
               listStyleType: "none",
@@ -30,18 +40,14 @@ const Sidebar: React.FC<sidebarprops> = ({ isSidebarOpen }): JSX.Element => {
               marginRight: "0px",
             }}
           >
-            <li>Il mio account</li>
-            <li>Impostazioni</li>
-            <li>Aiuto</li>
-            <li>Disconnetti</li>
+            <li onClick={() => history.push("/Personal")}>Il mio account</li>
+            <li onClick={() => history.push("/Settings")}>Impostazioni</li>
+            <li onClick={() => history.push("/Help")}>Aiuto</li>
+            <li onClick={() => history.push("/")}>Disconnetti</li>
           </ul>
         </div>
       ) : (
-        <div className="sidebar" style={style1}>
-          <ul
-            style={{ listStyleType: "none", width: "0px", height: "0px" }}
-          ></ul>
-        </div>
+        <div className="sidebar" style={style1}></div>
       )}
     </>
   );

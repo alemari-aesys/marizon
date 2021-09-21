@@ -6,9 +6,11 @@ import Sidebar from "./Sidebar";
 const HeaderHome = () => {
   const [isSidebarOpen, setIsSideBarOpen] = useState<boolean>(false);
 
-  // useEffect(() => {
-  //     console.log(isSidebarOpen);
-  // }, [isSidebarOpen])
+  useEffect(() => {
+    window.addEventListener("click", (e: MouseEvent) => {
+      const clickedEl = e.target;
+    });
+  }, []);
 
   return (
     <header>
@@ -37,7 +39,10 @@ const HeaderHome = () => {
           <span className="material-icons">close</span>
         )}
       </div>
-      <Sidebar isSidebarOpen={isSidebarOpen} />
+      <Sidebar
+        isSidebarOpen={isSidebarOpen}
+        setIsSidebarOpen={setIsSideBarOpen}
+      />
     </header>
   );
 };
