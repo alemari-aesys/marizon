@@ -1,43 +1,33 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { article } from "../db";
 
 const TilesSection = () => {
+    const IMAGES_TO_DISPLAY = 9;
+    const [imagesArray, setImagesArray] = useState<string[]>([]);
+   
+    const pick = useCallback(() => {
+        setImagesArray(shuffleArray(article.map(_ => _.image), IMAGES_TO_DISPLAY));
+    }, [])
 
-    const [indexArray, setIndexArray] = useState<number[]>([]);
-
-    const pick = useCallback((): number => {
-        let found = false;
-        let foundIndex = 0;
-        while (!found) {
-            console.log('====================================');
-            let index = Math.floor(Math.random() * 30);
-            // eslint-disable-next-line no-loop-func
-            if (!indexArray.includes(index)) {
-                found = true;
-                foundIndex = index;
-                break;
-            } else {
-                setIndexArray((prevValue) => {
-                    return [...prevValue, index]
-                })
-            }
-            break;
+    useEffect(() => {
+        pick();
+    }, [pick])
+    
+    const shuffleArray = (array: Array<string>, length: number): Array<string> => {
+        const shuffled = new Set<string>();
+        while(shuffled.size < length) {
+            shuffled.add(array[Math.floor(Math.random() * (length) + 10)]);
         }
-        return foundIndex;
-    }, [indexArray])
+        return Array.from(shuffled);
+    }
+    
 
     return (
         <div className="productContainer">
             <div className="row">
-                <img width="200px" height="200px" src={article[pick()].image} alt="" />
-                <img width="200px" height="200px" src={article[pick()].image} alt="" />
-                <img width="200px" height="200px" src={article[pick()].image} alt="" />
-                <img width="200px" height="200px" src={article[pick()].image} alt="" />
-                <img width="200px" height="200px" src={article[pick()].image} alt="" />
-                <img width="200px" height="200px" src={article[pick()].image} alt="" />
-                <img width="200px" height="200px" src={article[pick()].image} alt="" />
-                <img width="200px" height="200px" src={article[pick()].image} alt="" />
-                <img width="200px" height="200px" src={article[pick()].image} alt="" />
+                {
+                    imagesArray?.map(imageSource => (<img className="tile" width="200px" height="200px" src={imageSource} alt=""></img>))
+                }
             </div>
         </div>
     );

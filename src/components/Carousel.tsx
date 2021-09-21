@@ -1,7 +1,6 @@
 import { article } from '../db';
 import { useState, useEffect, useRef } from 'react';
 
-
 const Carousel = () => {
     const [n, setN] = useState<number>(0);
     const [currentImage, setCurrentImage] = useState<string>(article[n].image);
@@ -37,9 +36,9 @@ const Carousel = () => {
     }
     return (
         <div className="carouselContainer">
-            <i onClick={prevImg} className="material-icons">chevron_left</i>
+            <i onClick={prevImg} className="material-icons chevronLeft">chevron_left</i>
                 <img className="carousel" src={currentImage} alt="" />
-            <i onClick={nextImg} className="material-icons">chevron_right</i>
+            <i onClick={nextImg} className="material-icons chevronRight">chevron_right</i>
         </div>
     );
 }
