@@ -14,8 +14,6 @@ const Personal: React.FC<person> = ({
 }): JSX.Element => {
   return (
     <div>
-      <HeaderHome />
-      <hr style={{ margin: 0, border: "0.5px solid" }} />
       <PersonalContent username={username} name={name} surname={surname} />
     </div>
   );

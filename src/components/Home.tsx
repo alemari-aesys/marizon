@@ -6,9 +6,7 @@ import Sidebar from "./Sidebar";
 
 const Home = () => {
   return (
-    <div>
-      <HeaderHome />
-      <hr style={{ margin: 0, border: "0.5px solid" }} />
+    <div style={{ position: "relative" }}>
       <SearchBar />
       <Carousel />
       <TilesSection />

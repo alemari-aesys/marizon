@@ -1,16 +1,12 @@
-import HeaderBasic from './HeaderBasic';
-import LandingForm from './LandingForm';
-
+import HeaderBasic from "./HeaderBasic";
+import LandingForm from "./LandingForm";
 
 const Landing = () => {
-
-    return (
-        <div>
-            <HeaderBasic />
-            <hr style={{margin: 0, border: '0.5px solid'}} />
-            <LandingForm />
-        </div>
-    );
-}
+  return (
+    <div>
+      <LandingForm />
+    </div>
+  );
+};
 
 export default Landing;
