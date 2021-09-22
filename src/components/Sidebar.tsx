@@ -3,6 +3,7 @@ import CSS from "csstype";
 import { useHistory } from "react-router";
 
 interface sidebarprops {
+  sidebarRef: React.RefObject<HTMLDivElement>;
   isSidebarOpen: boolean;
   setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -10,6 +11,7 @@ interface sidebarprops {
 const Sidebar: React.FC<sidebarprops> = ({
   isSidebarOpen,
   setIsSidebarOpen,
+  sidebarRef,
 }): JSX.Element => {
   const history = useHistory();
 
@@ -32,7 +34,7 @@ const Sidebar: React.FC<sidebarprops> = ({
   return (
     <>
       {isSidebarOpen ? (
-        <div id="open" className="sidebar" style={style0}>
+        <div ref={sidebarRef} id="open" className="sidebar" style={style0}>
           <ul
             style={{
               listStyleType: "none",

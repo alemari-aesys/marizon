@@ -1,16 +1,26 @@
 import * as React from "react";
 import logo from "../assets/logo.png";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Sidebar from "./Sidebar";
+import useOnClickOutside from "../customHook/useOnClickOutside";
 
 const HeaderHome = () => {
   const [isSidebarOpen, setIsSideBarOpen] = useState<boolean>(false);
 
+  const sidebar = useRef<HTMLDivElement>(null);
+  const burger = useRef<HTMLElement>(null);
+
   useEffect(() => {
-    window.addEventListener("click", (e: MouseEvent) => {
-      const clickedEl = e.target;
+    document.addEventListener("click", (event: MouseEvent) => {
+      if (
+        isSidebarOpen &&
+        event.target !== sidebar.current &&
+        event.target !== burger.current
+      ) {
+        setIsSideBarOpen(!isSidebarOpen);
+      }
     });
-  }, []);
+  }, [isSidebarOpen]);
 
   return (
     <header>
@@ -33,13 +43,14 @@ const HeaderHome = () => {
         </nav>
       </div>
       <div className="four" onClick={() => setIsSideBarOpen(!isSidebarOpen)}>
-        {!isSidebarOpen ? (
-          <i className="material-icons hamburger">menu</i>
-        ) : (
-          <span className="material-icons">close</span>
-        )}
+        {
+          <i ref={burger} className="material-icons" id="burger">
+            {!isSidebarOpen ? "menu" : "close"}
+          </i>
+        }
       </div>
       <Sidebar
+        sidebarRef={sidebar}
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSideBarOpen}
       />
