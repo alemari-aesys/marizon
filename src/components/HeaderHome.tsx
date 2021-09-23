@@ -18,6 +18,9 @@ const HeaderHome = () => {
     document.addEventListener("scroll", () => {
       setScrollVertical(Math.round(window.scrollY));
     });
+    if (window.scrollY > 1) {
+      stickNavbar();
+    }
   }, []);
 
   useEffect(() => {
@@ -35,16 +38,21 @@ const HeaderHome = () => {
   }, [isSidebarOpen]);
 
   useEffect(() => {
-    if (scrollVertical > 60) {
-      console.log("mario");
-
-      document.getElementsByTagName("header")[0].style.position = "fixed";
-      document.getElementById("ngulamammt")!.style.paddingTop = "77px";
-      document.getElementsByTagName("header")[0].style.width = "100%";
-      document.getElementsByTagName("header")[0].style.zIndex = "1";
+    if (scrollVertical > 1) {
+      stickNavbar();
     }
     console.log(scrollVertical);
   }, [scrollVertical]);
+
+  const stickNavbar = () => {
+    document.getElementsByTagName("header")[0].style.position = "sticky";
+    document.getElementsByTagName("header")[0].style.top = "0";
+    document.getElementsByTagName("header")[0].style.left = "200px";
+
+    // document.getElementById("ngulamammt")!.style.paddingTop = "77px";
+    document.getElementsByTagName("header")[0].style.width = "100%";
+    document.getElementsByTagName("header")[0].style.zIndex = "1";
+  };
 
   return (
     <header>
