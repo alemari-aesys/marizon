@@ -9,7 +9,6 @@ import { useLocation } from "react-router";
 const HeaderHome = () => {
   const [isSidebarOpen, setIsSideBarOpen] = useState<boolean>(false);
   const [scrollVertical, setScrollVertical] = useState(0);
-  const [showBurger, setShowBurger] = useState(false);
   const location = useLocation();
   const sidebar = useRef<HTMLDivElement>(null);
   const burger = useRef<HTMLElement>(null);
@@ -48,8 +47,6 @@ const HeaderHome = () => {
     document.getElementsByTagName("header")[0].style.position = "sticky";
     document.getElementsByTagName("header")[0].style.top = "0";
     document.getElementsByTagName("header")[0].style.left = "200px";
-
-    // document.getElementById("ngulamammt")!.style.paddingTop = "77px";
     document.getElementsByTagName("header")[0].style.width = "100%";
     document.getElementsByTagName("header")[0].style.zIndex = "1";
   };

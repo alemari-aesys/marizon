@@ -1,4 +1,3 @@
-import HeaderBasic from "./HeaderBasic";
 import LandingForm from "./LandingForm";
 
 const Landing = () => {

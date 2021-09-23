@@ -20,23 +20,22 @@ const PersonalContent: React.FC<person> = ({
           alt="Foto profilo"
         />
         <h4 style={{ textAlign: "center" }}>{username.toUpperCase()}</h4>
-        <div className="registry">
-          <ul className="personalData1">
-            <li>Nome</li>
-            <li>Cognome</li>
-            <li>Data di nascita</li>
-            <li>Città di residenza</li>
-            <li>Indirizzo</li>
-            <li>N. tel</li>
-          </ul>
-          <ul className="personalData2">
-            <li>Tizio</li>
-            <li>Strano</li>
-            <li>25/12/0</li>
-            <li>Gerusalemme</li>
-            <li>Via Giuseppe Cornuto 33</li>
-            <li>555-666333</li>
-          </ul>
+        <div className="registryContainer">
+          <div className="label">
+            <div>Nome</div>
+            <div>Cognome</div>
+            <div>Città</div>
+            <div>Data di nascita</div>
+            <div>Indirizzo</div>
+          </div>
+          <div className="empty"></div>
+          <div className="data">
+            <div>Alessandro</div>
+            <div>Marinelli</div>
+            <div>Pescara</div>
+            <div>Stocazzo</div>
+            <div>Via dalle palle</div>
+          </div>
         </div>
       </div>
     </div>

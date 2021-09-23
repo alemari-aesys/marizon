@@ -5,7 +5,6 @@ import { Personal } from "./Personal";
 import { Route, Link, Switch } from "react-router-dom";
 import Settings from "./Settings";
 import Help from "./Help";
-import HeaderBasic from "./HeaderBasic";
 
 const App = () => {
   return (
